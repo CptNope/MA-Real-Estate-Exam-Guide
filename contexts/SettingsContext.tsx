@@ -7,12 +7,12 @@ interface SettingsContextType {
 }
 
 const SettingsContext = createContext<SettingsContextType>({
-  isVocabEnabled: true,
+  isVocabEnabled: false,
   toggleVocab: () => {},
 });
 
 export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isVocabEnabled, setIsVocabEnabled] = useState(true);
+  const [isVocabEnabled, setIsVocabEnabled] = useState(false);
 
   const toggleVocab = () => {
     setIsVocabEnabled(prev => !prev);
