@@ -1,0 +1,71 @@
+{
+  "name": "MA Real Estate Exam Study Guide",
+  "short_name": "MA RE Guide",
+  "description": "Free Massachusetts Real Estate Salesperson Exam study guide with interactive quizzes, flashcards, and calculators",
+  "start_url": "/MA-Real-Estate-Exam-Guide/",
+  "scope": "/MA-Real-Estate-Exam-Guide/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "portrait-primary",
+  "categories": ["education", "productivity"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/MA-Real-Estate-Exam-Guide/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/MA-Real-Estate-Exam-Guide/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/MA-Real-Estate-Exam-Guide/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Practice Quiz",
+      "short_name": "Quiz",
+      "description": "Take a practice quiz",
+      "url": "/MA-Real-Estate-Exam-Guide/#quiz",
+      "icons": [{ "src": "/MA-Real-Estate-Exam-Guide/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Flashcards",
+      "short_name": "Cards",
+      "description": "Study with flashcards",
+      "url": "/MA-Real-Estate-Exam-Guide/#flashcards",
+      "icons": [{ "src": "/MA-Real-Estate-Exam-Guide/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Calculators",
+      "short_name": "Calc",
+      "description": "Use real estate calculators",
+      "url": "/MA-Real-Estate-Exam-Guide/#calculators",
+      "icons": [{ "src": "/MA-Real-Estate-Exam-Guide/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/MA-Real-Estate-Exam-Guide/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/MA-Real-Estate-Exam-Guide/screenshot-narrow.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+}

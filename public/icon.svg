@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background -->
+  <rect width="512" height="512" fill="#0f172a" rx="80"/>
+  
+  <!-- House Icon -->
+  <g transform="translate(256, 256)">
+    <!-- Roof -->
+    <path d="M -120 -40 L 0 -140 L 120 -40 L 100 -40 L 100 100 L -100 100 L -100 -40 Z" 
+          fill="#3b82f6" 
+          stroke="#60a5fa" 
+          stroke-width="4"/>
+    
+    <!-- Door -->
+    <rect x="-30" y="30" width="60" height="70" 
+          fill="#1e40af" 
+          stroke="#60a5fa" 
+          stroke-width="3" 
+          rx="5"/>
+    
+    <!-- Windows -->
+    <rect x="-80" y="-10" width="35" height="35" 
+          fill="#fbbf24" 
+          stroke="#fcd34d" 
+          stroke-width="3" 
+          rx="3"/>
+    <rect x="45" y="-10" width="35" height="35" 
+          fill="#fbbf24" 
+          stroke="#fcd34d" 
+          stroke-width="3" 
+          rx="3"/>
+    
+    <!-- Window panes -->
+    <line x1="-62.5" y1="-10" x2="-62.5" y2="25" stroke="#f59e0b" stroke-width="2"/>
+    <line x1="-80" y1="7.5" x2="-45" y2="7.5" stroke="#f59e0b" stroke-width="2"/>
+    <line x1="62.5" y1="-10" x2="62.5" y2="25" stroke="#f59e0b" stroke-width="2"/>
+    <line x1="45" y1="7.5" x2="80" y2="7.5" stroke="#f59e0b" stroke-width="2"/>
+    
+    <!-- Doorknob -->
+    <circle cx="-15" cy="65" r="4" fill="#fcd34d"/>
+    
+    <!-- Chimney -->
+    <rect x="60" y="-120" width="30" height="60" 
+          fill="#dc2626" 
+          stroke="#ef4444" 
+          stroke-width="3"/>
+  </g>
+  
+  <!-- "MA" Text Badge -->
+  <g transform="translate(380, 132)">
+    <circle cx="0" cy="0" r="50" fill="#10b981" stroke="#34d399" stroke-width="4"/>
+    <text x="0" y="0" 
+          text-anchor="middle" 
+          dominant-baseline="central"
+          font-family="Arial, sans-serif" 
+          font-size="48" 
+          font-weight="bold" 
+          fill="white">MA</text>
+  </g>
+</svg>

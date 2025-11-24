@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate PWA Icons</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 10px 5px;
+    }
+    button:hover {
+      background: #2563eb;
+    }
+    canvas {
+      border: 1px solid #ddd;
+      margin: 10px;
+      display: block;
+    }
+    .success {
+      color: #10b981;
+      font-weight: bold;
+    }
+    .instructions {
+      background: #eff6ff;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Generate PWA Icons</h1>
+    <p>This tool will generate the required PNG icons for your PWA from the SVG source.</p>
+    
+    <div class="instructions">
+      <strong>Instructions:</strong>
+      <ol>
+        <li>Click the buttons below to generate each icon size</li>
+        <li>Right-click on each canvas and "Save Image As..."</li>
+        <li>Save as <code>icon-192.png</code> and <code>icon-512.png</code></li>
+        <li>Place files in the <code>public</code> folder</li>
+      </ol>
+    </div>
+
+    <button onclick="generateIcon(192)">Generate 192x192 Icon</button>
+    <button onclick="generateIcon(512)">Generate 512x512 Icon</button>
+    <button onclick="generateAll()">Generate All</button>
+    
+    <div id="output"></div>
+  </div>
+
+  <script>
+    // SVG source (same as icon.svg)
+    const svgSource = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" fill="#0f172a" rx="80"/>
+  <g transform="translate(256, 256)">
+    <path d="M -120 -40 L 0 -140 L 120 -40 L 100 -40 L 100 100 L -100 100 L -100 -40 Z" 
+          fill="#3b82f6" stroke="#60a5fa" stroke-width="4"/>
+    <rect x="-30" y="30" width="60" height="70" 
+          fill="#1e40af" stroke="#60a5fa" stroke-width="3" rx="5"/>
+    <rect x="-80" y="-10" width="35" height="35" 
+          fill="#fbbf24" stroke="#fcd34d" stroke-width="3" rx="3"/>
+    <rect x="45" y="-10" width="35" height="35" 
+          fill="#fbbf24" stroke="#fcd34d" stroke-width="3" rx="3"/>
+    <line x1="-62.5" y1="-10" x2="-62.5" y2="25" stroke="#f59e0b" stroke-width="2"/>
+    <line x1="-80" y1="7.5" x2="-45" y2="7.5" stroke="#f59e0b" stroke-width="2"/>
+    <line x1="62.5" y1="-10" x2="62.5" y2="25" stroke="#f59e0b" stroke-width="2"/>
+    <line x1="45" y1="7.5" x2="80" y2="7.5" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="-15" cy="65" r="4" fill="#fcd34d"/>
+    <rect x="60" y="-120" width="30" height="60" 
+          fill="#dc2626" stroke="#ef4444" stroke-width="3"/>
+  </g>
+  <g transform="translate(380, 132)">
+    <circle cx="0" cy="0" r="50" fill="#10b981" stroke="#34d399" stroke-width="4"/>
+    <text x="0" y="0" text-anchor="middle" dominant-baseline="central"
+          font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white">MA</text>
+  </g>
+</svg>`;
+
+    function generateIcon(size) {
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+
+      const img = new Image();
+      const blob = new Blob([svgSource], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+
+      img.onload = function() {
+        ctx.drawImage(img, 0, 0, size, size);
+        URL.revokeObjectURL(url);
+        
+        const output = document.getElementById('output');
+        const container = document.createElement('div');
+        container.innerHTML = `
+          <h3 class="success">✓ Generated ${size}x${size} Icon</h3>
+          <p>Right-click and "Save Image As..." → <code>icon-${size}.png</code></p>
+        `;
+        container.appendChild(canvas);
+        output.appendChild(container);
+      };
+
+      img.src = url;
+    }
+
+    function generateAll() {
+      document.getElementById('output').innerHTML = '';
+      generateIcon(192);
+      setTimeout(() => generateIcon(512), 500);
+    }
+  </script>
+</body>
+</html>
