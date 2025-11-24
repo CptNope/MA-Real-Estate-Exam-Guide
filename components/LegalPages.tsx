@@ -6,11 +6,11 @@ interface LegalPageProps {
 
 export const PrivacyPolicy: React.FC<LegalPageProps> = ({ onClose }) => {
   return (
-    <div className="fixed inset-0 bg-slate-950 z-50 overflow-y-auto">
+    <div className="fixed inset-0 bg-slate-950 z-[100] overflow-y-auto">
       <div className="max-w-4xl mx-auto px-4 py-8">
         <button
           onClick={onClose}
-          className="mb-6 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-200 transition-colors"
+          className="mb-6 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition-colors font-medium"
           aria-label="Close Privacy Policy and return to main content"
         >
           ← Back to Guide
@@ -112,11 +112,11 @@ export const PrivacyPolicy: React.FC<LegalPageProps> = ({ onClose }) => {
 
 export const TermsOfService: React.FC<LegalPageProps> = ({ onClose }) => {
   return (
-    <div className="fixed inset-0 bg-slate-950 z-50 overflow-y-auto">
+    <div className="fixed inset-0 bg-slate-950 z-[100] overflow-y-auto">
       <div className="max-w-4xl mx-auto px-4 py-8">
         <button
           onClick={onClose}
-          className="mb-6 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-200 transition-colors"
+          className="mb-6 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition-colors font-medium"
           aria-label="Close Terms of Service and return to main content"
         >
           ← Back to Guide
@@ -226,11 +226,11 @@ export const TermsOfService: React.FC<LegalPageProps> = ({ onClose }) => {
 
 export const AccessibilityStatement: React.FC<LegalPageProps> = ({ onClose }) => {
   return (
-    <div className="fixed inset-0 bg-slate-950 z-50 overflow-y-auto">
+    <div className="fixed inset-0 bg-slate-950 z-[100] overflow-y-auto">
       <div className="max-w-4xl mx-auto px-4 py-8">
         <button
           onClick={onClose}
-          className="mb-6 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-200 transition-colors"
+          className="mb-6 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition-colors font-medium"
           aria-label="Close Accessibility Statement and return to main content"
         >
           ← Back to Guide
