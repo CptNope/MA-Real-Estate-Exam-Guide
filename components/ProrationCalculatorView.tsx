@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { CalculatorModule } from '../types';
-import { DivideIcon, CalendarIcon } from './Icons';
+import { DivideIcon } from './Icons';
 
-const ProrationCalculatorView: React.FC<{ module: CalculatorModule }> = ({ module }) => {
+const ProrationCalculatorView: React.FC<{ module: CalculatorModule }> = () => {
   // Defaults for a typical exam question
   const [totalAmount, setTotalAmount] = useState(3600);
   const [closingDay, setClosingDay] = useState(15);
@@ -63,10 +63,11 @@ const ProrationCalculatorView: React.FC<{ module: CalculatorModule }> = ({ modul
           <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 space-y-4">
             
             <div>
-              <label className="block text-xs font-bold text-slate-400 uppercase mb-2">Annual Expense Amount</label>
+              <label htmlFor="annual-amount" className="block text-xs font-bold text-slate-400 uppercase mb-2">Annual Expense Amount</label>
               <div className="relative">
                 <span className="absolute left-3 top-2.5 text-slate-500">$</span>
                 <input 
+                  id="annual-amount"
                   type="number"
                   value={totalAmount}
                   onChange={(e) => setTotalAmount(Number(e.target.value))}
@@ -77,8 +78,9 @@ const ProrationCalculatorView: React.FC<{ module: CalculatorModule }> = ({ modul
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-slate-400 uppercase mb-2">Closing Month</label>
+                <label htmlFor="closing-month" className="block text-xs font-bold text-slate-400 uppercase mb-2">Closing Month</label>
                 <select 
+                  id="closing-month"
                   value={closingMonth}
                   onChange={(e) => setClosingMonth(Number(e.target.value))}
                   className="w-full bg-slate-800 border border-slate-700 rounded px-3 py-2 text-white focus:border-orange-500 outline-none"
@@ -89,8 +91,9 @@ const ProrationCalculatorView: React.FC<{ module: CalculatorModule }> = ({ modul
                 </select>
               </div>
               <div>
-                <label className="block text-xs font-bold text-slate-400 uppercase mb-2">Day</label>
+                <label htmlFor="closing-day" className="block text-xs font-bold text-slate-400 uppercase mb-2">Day</label>
                 <input 
+                  id="closing-day"
                   type="number" min="1" max="30"
                   value={closingDay}
                   onChange={(e) => setClosingDay(Number(e.target.value))}
@@ -104,6 +107,9 @@ const ProrationCalculatorView: React.FC<{ module: CalculatorModule }> = ({ modul
               <button 
                 onClick={() => setSellerOwnsClosingDay(!sellerOwnsClosingDay)}
                 className={`w-12 h-6 rounded-full p-1 transition-colors ${sellerOwnsClosingDay ? 'bg-blue-600' : 'bg-slate-600'}`}
+                aria-label={`Seller owns closing day: ${sellerOwnsClosingDay ? 'Yes' : 'No'}`}
+                role="switch"
+                aria-checked={sellerOwnsClosingDay ? 'true' : 'false'}
               >
                 <div className={`w-4 h-4 bg-white rounded-full shadow-sm transition-transform ${sellerOwnsClosingDay ? 'translate-x-6' : ''}`} />
               </button>
@@ -115,12 +121,14 @@ const ProrationCalculatorView: React.FC<{ module: CalculatorModule }> = ({ modul
                   <button 
                     onClick={() => setIsPrepaid(false)}
                     className={`px-3 py-1 text-xs rounded ${!isPrepaid ? 'bg-red-500/20 text-red-400 font-bold' : 'text-slate-400'}`}
+                    aria-label="No (Arrears)"
                   >
                     No (Arrears)
                   </button>
                   <button 
                     onClick={() => setIsPrepaid(true)}
                     className={`px-3 py-1 text-xs rounded ${isPrepaid ? 'bg-green-500/20 text-green-400 font-bold' : 'text-slate-400'}`}
+                    aria-label="Yes (Prepaid)"
                   >
                     Yes (Prepaid)
                   </button>
@@ -147,7 +155,7 @@ const ProrationCalculatorView: React.FC<{ module: CalculatorModule }> = ({ modul
              </div>
              
              {/* Bar */}
-             <div className="h-4 bg-slate-700 rounded-full w-full flex overflow-hidden relative">
+             <div className="h-4 bg-slate-700 rounded-full w-full flex overflow-hidden relative" role="img" aria-label={`Timeline: Seller ${results.sellerDays} days, Buyer ${results.buyerDays} days`}>
                 <div className="bg-blue-500 h-full" style={{ width: `${(results.sellerDays / 360) * 100}%` }}></div>
                 <div className="bg-green-500 h-full flex-1"></div>
                 
@@ -155,6 +163,7 @@ const ProrationCalculatorView: React.FC<{ module: CalculatorModule }> = ({ modul
                 <div 
                   className="absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)]"
                   style={{ left: `${(results.sellerDays / 360) * 100}%` }}
+                  aria-hidden="true"
                 ></div>
              </div>
              
