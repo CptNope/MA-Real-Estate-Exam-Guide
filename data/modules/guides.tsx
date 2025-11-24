@@ -955,7 +955,7 @@ export const guideModules: GuideModule[] = [
                     <li><strong>Foreclosure:</strong> Bank takes title.</li>
                     <li><strong>Eminent Domain:</strong> Government takes title.</li>
                     <li><strong>Adverse Possession:</strong> Squatter takes title (20 years).</li>
-                    <li><strong>Escheat:</strong> Dying <em>Intestate</em> (no will, no heirs) -> State takes title.</li>
+                    <li><strong>Escheat:</strong> Dying <em>Intestate</em> (no will, no heirs) → State takes title.</li>
                  </ul>
               </div>
            </div>

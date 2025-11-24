@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // Critical for GitHub Pages: ensures assets use relative paths
+  base: '/MA-Real-Estate-Exam-Guide/', // GitHub Pages base path
 })
