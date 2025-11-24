@@ -38,6 +38,11 @@ const App: React.FC = () => {
 
   return (
     <SettingsProvider>
+      {/* Skip to content link for keyboard users */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+      
       {/* Legal Pages Overlay */}
       {renderLegalPage()}
       
@@ -56,7 +61,7 @@ const App: React.FC = () => {
           <div className="flex-1 flex flex-col min-w-0">
             
             {/* Mobile Header */}
-            <div className="lg:hidden sticky top-0 z-20 bg-slate-950/90 backdrop-blur-md border-b border-slate-800 px-4 py-3 flex items-center justify-between">
+            <header className="lg:hidden sticky top-0 z-20 bg-slate-950/90 backdrop-blur-md border-b border-slate-800 px-4 py-3 flex items-center justify-between" role="banner">
               <div className="font-semibold text-slate-200">
                 MA Real Estate Guide
               </div>
@@ -67,10 +72,10 @@ const App: React.FC = () => {
               >
                 <MenuIcon size={24} />
               </button>
-            </div>
+            </header>
 
             {/* Content Scroll Area */}
-            <main className="flex-1 relative">
+            <main id="main-content" className="flex-1 relative" role="main">
               {renderContent()}
             </main>
 

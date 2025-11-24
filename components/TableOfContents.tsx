@@ -12,10 +12,13 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ items, activeId, onIt
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div className="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 mb-8">
+    <nav className="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 mb-8" aria-label="Table of contents">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex justify-between items-center p-4 hover:bg-slate-800/50 transition-colors text-slate-200"
+        aria-expanded={isOpen}
+        aria-controls="toc-list"
+        aria-label={isOpen ? "Collapse table of contents" : "Expand table of contents"}
       >
         <div className="flex items-center space-x-3">
           <ListIcon className="text-slate-400" size={20} />
@@ -25,11 +28,13 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ items, activeId, onIt
       </button>
 
       <div
+        id="toc-list"
         className={`transition-[max-height] duration-300 ease-in-out overflow-hidden ${
-          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          isOpen ? 'max-h-96' : 'max-h-0'
         }`}
+        role="region"
       >
-        <ul className="px-3 pb-3 space-y-1">
+        <ul className="p-2 space-y-1 border-t border-slate-800" role="list">
           {items.map((item) => {
             const isActive = activeId === item.id;
             return (
@@ -52,7 +57,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ items, activeId, onIt
           })}
         </ul>
       </div>
-    </div>
+    </nav>
   );
 };
 

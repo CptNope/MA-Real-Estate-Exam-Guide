@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Accessibility styles */
+@import './accessibility.css';
+
 /* Custom scrollbar for a cleaner look */
 ::-webkit-scrollbar {
   width: 8px;
