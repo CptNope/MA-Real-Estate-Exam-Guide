@@ -16,7 +16,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ items, activeId, onIt
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex justify-between items-center p-4 hover:bg-slate-800/50 transition-colors text-slate-200"
-        aria-expanded={isOpen}
+        aria-expanded={isOpen ? "true" : "false"}
         aria-controls="toc-list"
         aria-label={isOpen ? "Collapse table of contents" : "Expand table of contents"}
       >

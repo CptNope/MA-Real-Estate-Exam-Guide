@@ -109,7 +109,7 @@ const ProrationCalculatorView: React.FC<{ module: CalculatorModule }> = () => {
                 className={`w-12 h-6 rounded-full p-1 transition-colors ${sellerOwnsClosingDay ? 'bg-blue-600' : 'bg-slate-600'}`}
                 aria-label={`Seller owns closing day: ${sellerOwnsClosingDay ? 'Yes' : 'No'}`}
                 role="switch"
-                aria-checked={sellerOwnsClosingDay ? 'true' : 'false'}
+                aria-checked={sellerOwnsClosingDay ? "true" : "false"}
               >
                 <div className={`w-4 h-4 bg-white rounded-full shadow-sm transition-transform ${sellerOwnsClosingDay ? 'translate-x-6' : ''}`} />
               </button>
