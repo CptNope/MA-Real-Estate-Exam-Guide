@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { QuizModule, FlashcardModule } from '../../types';
-import { BrainIcon, CalculatorIcon, LayersIcon, CalendarIcon, ClipboardIcon } from '../../components/Icons';
+import { BrainIcon, CalculatorIcon, LayersIcon, CalendarIcon, ClipboardIcon, BuildingIcon, MapIcon } from '../../components/Icons';
 
 export const quizModules: QuizModule[] = [
   {
@@ -330,6 +329,144 @@ export const quizModules: QuizModule[] = [
         explanation: "Year 1: $200k x 1.05 = $210,000. Year 2: $210k x 1.05 = $220,500. (Compound interest)."
       }
     ]
+  },
+  {
+    id: 'landlord-tenant-quiz',
+    title: 'MA Landlord-Tenant Law Quiz',
+    description: 'Security deposits, leases, eviction procedures, and tenant rights.',
+    icon: <BuildingIcon size={20} />,
+    type: 'quiz',
+    questions: [
+      {
+        id: 'lt-q1',
+        question: 'What is the MAXIMUM amount a landlord can collect as a security deposit in Massachusetts?',
+        options: [
+          'Two months\' rent',
+          'One month\'s rent',
+          'One and a half months\' rent',
+          'There is no limit'
+        ],
+        correctIndex: 1,
+        explanation: 'Massachusetts law limits security deposits to ONE MONTH\'S RENT maximum.'
+      },
+      {
+        id: 'lt-q2',
+        question: 'Within how many days must a landlord return a security deposit?',
+        options: [
+          '14 days',
+          '21 days',
+          '30 days',
+          '45 days'
+        ],
+        correctIndex: 2,
+        explanation: '30 DAYS after tenant moves out, with interest and itemized deductions.'
+      },
+      {
+        id: 'lt-q3',
+        question: 'What penalty faces a landlord who violates security deposit rules?',
+        options: [
+          'Simple interest',
+          'Return deposit immediately',
+          'TREBLE DAMAGES (3x) plus attorney fees',
+          'Warning only'
+        ],
+        correctIndex: 2,
+        explanation: 'Tenant can sue for TREBLE DAMAGES (3x) plus attorney fees for violations.'
+      },
+      {
+        id: 'lt-q4',
+        question: 'How much notice to terminate a month-to-month tenancy in MA?',
+        options: [
+          '7 days',
+          '14 days',
+          '30 days',
+          '60 days'
+        ],
+        correctIndex: 2,
+        explanation: '30 DAYS notice required to terminate month-to-month or tenancy at will.'
+      },
+      {
+        id: 'lt-q5',
+        question: 'Notice required for NON-PAYMENT OF RENT before eviction?',
+        options: [
+          '7 days',
+          '14 days',
+          '21 days',
+          '30 days'
+        ],
+        correctIndex: 1,
+        explanation: '14 DAYS notice for non-payment (Notice to Quit for Non-Payment).'
+      }
+    ]
+  },
+  {
+    id: 'zoning-quiz',
+    title: 'Land Use & Zoning Quiz',
+    description: 'Government powers, zoning classifications, variances, and non-conforming uses.',
+    icon: <MapIcon size={20} />,
+    type: 'quiz',
+    questions: [
+      {
+        id: 'z-q1',
+        question: 'Which government power allows regulation WITHOUT compensation?',
+        options: [
+          'Eminent Domain',
+          'Police Power',
+          'Taxation',
+          'Escheat'
+        ],
+        correctIndex: 1,
+        explanation: 'POLICE POWER allows regulation for health/safety WITHOUT compensation. PETE mnemonic.'
+      },
+      {
+        id: 'z-q2',
+        question: 'Government takes property for highway, must pay fair value. This is:',
+        options: [
+          'Police Power',
+          'Escheat',
+          'Eminent Domain',
+          'Taxation'
+        ],
+        correctIndex: 2,
+        explanation: 'EMINENT DOMAIN requires JUST COMPENSATION for taking private property.'
+      },
+      {
+        id: 'z-q3',
+        question: 'Which zoning is MOST restrictive for residential?',
+        options: [
+          'R-3 (Multi-family)',
+          'R-2 (Two-family)',
+          'R-1 (Single-family)',
+          'Commercial'
+        ],
+        correctIndex: 2,
+        explanation: 'R-1 (Single-family) is MOST RESTRICTIVE. R-2 allows duplexes, R-3 allows apartments.'
+      },
+      {
+        id: 'z-q4',
+        question: 'Variance vs. Special Exception - what\'s the KEY difference?',
+        options: [
+          'Variances cost more',
+          'Variance=hardship exception; Special Exception=already in code',
+          'Special exceptions are permanent',
+          'Variances are easier'
+        ],
+        correctIndex: 1,
+        explanation: 'VARIANCE=exception to rules (hardship). SPECIAL EXCEPTION=use in code (conditions).'
+      },
+      {
+        id: 'z-q5',
+        question: 'Non-conforming use (grandfathered) generally:',
+        options: [
+          'Can continue but cannot expand',
+          'Must close immediately',
+          'Must close in 6 months',
+          'Can expand without limits'
+        ],
+        correctIndex: 0,
+        explanation: 'Non-conforming use can CONTINUE but usually CANNOT EXPAND.'
+      }
+    ]
   }
 ];
 
@@ -496,6 +633,84 @@ export const flashcardModules: FlashcardModule[] = [
         front: "MA Tax Fiscal Year",
         back: "July 1 to June 30.",
         category: "Taxes"
+      }
+    ]
+  },
+  {
+    id: 'landlord-tenant-flashcards',
+    title: 'Landlord-Tenant Law Terms',
+    description: 'Essential MA security deposit rules, lease types, and tenant rights.',
+    icon: <BuildingIcon size={20} />,
+    type: 'flashcards',
+    cards: [
+      {
+        id: 'lt-fc-1',
+        front: "Security Deposit Maximum (MA)",
+        back: "ONE MONTH'S RENT maximum. Cannot exceed this amount.",
+        category: "Security Deposits"
+      },
+      {
+        id: 'lt-fc-2',
+        front: "Security deposit return timeline",
+        back: "30 DAYS after tenant moves out, including accrued interest.",
+        category: "Security Deposits"
+      },
+      {
+        id: 'lt-fc-3',
+        front: "Security deposit penalty",
+        back: "TREBLE DAMAGES (3x) plus attorney fees for violations.",
+        category: "Security Deposits"
+      },
+      {
+        id: 'lt-fc-4',
+        front: "30-day notice requirement",
+        back: "To terminate month-to-month tenancy or tenancy at will.",
+        category: "Notice Requirements"
+      },
+      {
+        id: 'lt-fc-5',
+        front: "14-day notice requirement",
+        back: "For NON-PAYMENT OF RENT before eviction.",
+        category: "Notice Requirements"
+      }
+    ]
+  },
+  {
+    id: 'zoning-flashcards',
+    title: 'Zoning & Land Use Terms',
+    description: 'Government powers, zoning classifications, variances.',
+    icon: <MapIcon size={20} />,
+    type: 'flashcards',
+    cards: [
+      {
+        id: 'z-fc-1',
+        front: "PETE (Mnemonic)",
+        back: "Four government powers: Police Power, Eminent Domain, Taxation, Escheat.",
+        category: "Government Powers"
+      },
+      {
+        id: 'z-fc-2',
+        front: "Police Power",
+        back: "Government's right to regulate for health/safety. NO COMPENSATION required.",
+        category: "Government Powers"
+      },
+      {
+        id: 'z-fc-3',
+        front: "Eminent Domain",
+        back: "Government takes property for public use. JUST COMPENSATION required.",
+        category: "Government Powers"
+      },
+      {
+        id: 'z-fc-4',
+        front: "R-1 Zoning",
+        back: "SINGLE-FAMILY residential only. MOST RESTRICTIVE residential zone.",
+        category: "Zoning Classifications"
+      },
+      {
+        id: 'z-fc-5',
+        front: "Variance vs. Special Exception",
+        back: "VARIANCE = exception to rules (hardship). SPECIAL EXCEPTION = already in code (conditions).",
+        category: "Variances & Exceptions"
       }
     ]
   }
